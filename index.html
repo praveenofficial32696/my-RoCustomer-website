@@ -33,14 +33,12 @@
         .logo-img { width: 130px; height: auto; }
         
         .nav-icons {
-            position: absolute;
-            right: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
         }
         .notif-bell, .logout-icon {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #64748b;
             cursor: pointer;
             position: relative;
@@ -66,6 +64,7 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            position: relative;
         }
 
         .auth-toggle {
@@ -108,7 +107,6 @@
             cursor: pointer;
         }
 
-        /* Modernized Profile Edit UI */
         .profile-edit-input {
             border: 1px solid #e2e8f0;
             border-radius: 10px;
@@ -128,6 +126,17 @@
             font-weight: 600;
             padding: 8px 20px;
             font-size: 0.85rem;
+        }
+
+        /* Fixed Logout Modal Styling */
+        #logoutModal .modal-dialog {
+            max-width: 340px;
+            margin: auto;
+        }
+        .btn-logout-action {
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            padding: 12px !important;
         }
 
         .edit-icon-btn {
@@ -190,23 +199,24 @@
         .accordion-item { border: none; margin-bottom: 10px; border-radius: 15px !important; overflow: hidden; border: 1px solid var(--border-color); }
         .accordion-button:not(.collapsed) { background-color: #f0f7ff; color: var(--rhythm-blue); box-shadow: none; }
         
-        /* Updated Accordion Header Style */
         .hist-header-btn {
             font-size: 0.95rem !important;
-            font-weight: 600 !important; /* Light Bold */
+            font-weight: 600 !important;
         }
         
         .spare-badge { background: #eff6ff; color: #1d4ed8; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 8px; display: inline-block; margin: 5px 5px 0 0; }
+        
+        .card-corner-actions {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="brand-header">
     <img src="logo.jpg" alt="Rhythm RO" class="logo-img">
-    <div class="nav-icons hidden" id="headerIcons">
-        <div class="notif-bell"><i class="bi bi-bell"></i><span class="notif-dot"></span></div>
-        <div class="logout-icon" onclick="logout()" title="Logout"><i class="bi bi-power"></i></div>
-    </div>
 </div>
 
 <div id="mobileToast">Message here</div>
@@ -234,6 +244,11 @@
 
 <div id="dashboard" class="container hidden mt-4" style="max-width: 500px;">
     <div class="white-card">
+        <div class="card-corner-actions nav-icons" id="headerIcons">
+            <div class="notif-bell" onclick="showNotifications()"><i class="bi bi-bell"></i><span class="notif-dot"></span></div>
+            <div class="logout-icon" onclick="openLogoutModal()" title="Logout"><i class="bi bi-power"></i></div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-start">
             <div id="profileDisplay">
                 <div class="d-flex align-items-center gap-2 mb-1">
@@ -246,7 +261,7 @@
         </div>
 
         <div id="editProfile" class="mt-3 hidden border-top pt-3">
-            <label class="small text-muted mb-1 ms-1">Profile Details</label>
+            <h6 class="fw-bold mb-2 ms-1">Profile Details</h6>
             <input type="text" id="editNameInp" class="form-control profile-edit-input mb-2" placeholder="Update Name">
             <input type="tel" id="editPhoneInp" class="form-control profile-edit-input mb-2" placeholder="Update Phone">
             <textarea id="editAddrInp" class="form-control profile-edit-input mb-3" rows="2" placeholder="Update Address"></textarea>
@@ -329,6 +344,43 @@
     </div>
 </div>
 
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0">
+            <div class="modal-body text-center py-4">
+                <div class="mb-3"><i class="bi bi-box-arrow-right text-danger" style="font-size: 2.5rem;"></i></div>
+                <h5 class="fw-bold">Confirm Logout</h5>
+                <p class="text-muted small">Are you sure you want to exit the app?</p>
+                <div class="d-flex gap-2 mt-4">
+                    <button type="button" class="btn btn-light border rounded-pill w-50 btn-logout-action" data-bs-dismiss="modal">Stay</button>
+                    <button type="button" class="btn btn-danger rounded-pill w-50 btn-logout-action" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="notifModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="fw-bold modal-title">Notifications</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="p-3 bg-light rounded-3 mb-2 border-start border-4 border-primary">
+                    <p class="small mb-1 fw-bold">Service Reminder</p>
+                    <p class="small text-muted mb-0">Your RO filter replacement is due in 5 days.</p>
+                </div>
+                <div class="p-3 bg-light rounded-3 border-start border-4 border-success">
+                    <p class="small mb-1 fw-bold">Order Confirmed</p>
+                    <p class="small text-muted mb-0">Technician Kumar has been assigned to your request.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 border-0">
@@ -350,12 +402,22 @@
 
 <script>
     const bookingModal = new bootstrap.Modal(document.getElementById('successModal'));
+    const notifModal = new bootstrap.Modal(document.getElementById('notifModal'));
+    const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
 
     function showToast(msg) {
         const toast = document.getElementById("mobileToast");
         toast.innerText = msg;
         toast.className = "show";
         setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+
+    function showNotifications() {
+        notifModal.show();
+    }
+
+    function openLogoutModal() {
+        logoutModal.show();
     }
 
     function updateDateLimit() {
@@ -381,14 +443,13 @@
         document.getElementById('authSection').classList.add('hidden');
         document.getElementById('dashboard').classList.remove('hidden');
         document.getElementById('contactBar').classList.remove('hidden');
-        document.getElementById('headerIcons').classList.remove('hidden');
     }
 
     function logout() {
+        logoutModal.hide();
         document.getElementById('authSection').classList.remove('hidden');
         document.getElementById('dashboard').classList.add('hidden');
         document.getElementById('contactBar').classList.add('hidden');
-        document.getElementById('headerIcons').classList.add('hidden');
     }
 
     function toggleProfileEdit() { 
