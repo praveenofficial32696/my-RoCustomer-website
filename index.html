@@ -211,20 +211,23 @@
             background: white;
             border: 1px solid #dee7f0;
             color: var(--accent);
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-left: 8px;
+            flex-shrink: 0;
         }
         .edit-icon-btn:hover {
             background: var(--accent);
             color: white;
             border-color: transparent;
+            transform: scale(1.05);
         }
         .bg-light.rounded-4 {
             background: #f2f7fd !important;
@@ -401,6 +404,18 @@
             padding: 12px 20px;
             font-weight: 600;
         }
+        /* RO Model edit panel */
+        .ro-model-edit-container {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eef2f8;
+        }
+        .ro-model-edit-container input {
+            font-size: 0.9rem;
+            border-radius: 16px;
+            border: 1.5px solid #e2eaf2;
+            padding: 10px 14px;
+        }
         /* PREMIUM CANCEL POPUP - Professional & Elegant Design */
         .premium-cancel-modal .modal-dialog {
             max-width: 320px;
@@ -532,6 +547,11 @@
             .premium-cancel-modal h5 {
                 font-size: 1.25rem;
             }
+            .edit-icon-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -595,8 +615,19 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <span class="text-muted small d-block">Current RO Model</span>
-                    <strong id="bText">Kent Grand Plus</strong>
+                    <strong id="roModelText">Kent Grand Plus</strong>
                 </div>
+                <div class="edit-icon-btn" onclick="toggleRoModelEdit()">
+                    <i class="bi bi-pencil"></i>
+                </div>
+            </div>
+            <!-- RO Model Edit Panel -->
+            <div id="editRoModelPanel" class="ro-model-edit-container hidden">
+                <div class="d-flex gap-2 mt-2">
+                    <input type="text" id="editRoModelInput" class="form-control" placeholder="Enter RO Model">
+                    <button class="btn btn-pill btn-primary btn-sm" onclick="saveRoModel()">Save</button>
+                </div>
+                <button class="btn btn-link btn-sm text-muted mt-2 p-0" onclick="toggleRoModelEdit()">Cancel</button>
             </div>
         </div>
     </div>
@@ -800,7 +831,32 @@
         if(newPhone) document.getElementById('dispPhone').innerText = newPhone;
         if(newAddr) document.getElementById('dispAddr').innerText = newAddr;
         toggleProfileEdit();
+        showToast('Profile updated successfully');
     }
+    
+    // RO Model Edit Functions
+    function toggleRoModelEdit() {
+        const panel = document.getElementById('editRoModelPanel');
+        const currentModel = document.getElementById('roModelText').innerText;
+        if (panel.classList.contains('hidden')) {
+            document.getElementById('editRoModelInput').value = currentModel;
+            panel.classList.remove('hidden');
+        } else {
+            panel.classList.add('hidden');
+        }
+    }
+    
+    function saveRoModel() {
+        const newModel = document.getElementById('editRoModelInput').value.trim();
+        if (newModel) {
+            document.getElementById('roModelText').innerText = newModel;
+            toggleRoModelEdit();
+            showToast(`RO Model updated to "${newModel}"`);
+        } else {
+            showToast('Please enter a valid RO model');
+        }
+    }
+    
     function getChargeMessage(serviceVal) {
         if(serviceVal === 'Service Request') return '*Service charge of ₹200 will be applicable.';
         if(serviceVal === 'Installation') return '*Installing charge of ₹500 will be applicable.';
