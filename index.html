@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Rhythm RO · premium customer</title>
+    <title>Rhythm RO · Service Hub</title>
     <!-- Bootstrap & icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- Google Font: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <style>
-        /* ---------- PREMIUM RESET & VARIABLES ---------- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --bg-light: #f5f9ff;
@@ -39,7 +38,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ----- BRAND HEADER (premium minimal) ----- */
         .brand-header {
             background: rgba(255,255,255,0.85);
             backdrop-filter: blur(8px);
@@ -59,8 +57,6 @@
             height: auto;
             filter: drop-shadow(0 2px 4px rgba(0,40,70,0.1));
         }
-
-        /* ----- NAV ICONS (dashboard) ----- */
         .nav-icons {
             display: flex;
             align-items: center;
@@ -98,8 +94,6 @@
             border-radius: 50%;
             border: 2px solid white;
         }
-
-        /* ----- AUTH CARD (premium glass) ----- */
         .auth-card {
             background: rgba(255,255,255,0.9);
             backdrop-filter: blur(15px);
@@ -110,7 +104,6 @@
             margin: 30px 16px;
             box-shadow: 0 30px 50px -30px rgba(0,50,80,0.3);
         }
-
         .white-card {
             background: var(--surface);
             border: none;
@@ -124,8 +117,6 @@
         .white-card:hover {
             box-shadow: var(--shadow-hover);
         }
-
-        /* ----- AUTH TOGGLE (elegant) ----- */
         .auth-toggle {
             background: #eef3f8;
             border-radius: 60px;
@@ -150,8 +141,6 @@
             color: var(--accent);
             font-weight: 700;
         }
-
-        /* ----- FORM CONTROLS (premium) ----- */
         .form-control, .form-select {
             border: 1.5px solid #e2eaf2;
             border-radius: 18px;
@@ -165,8 +154,9 @@
             box-shadow: 0 0 0 4px rgba(0,119,190,0.15);
             outline: none;
         }
-
-        /* ----- PRIMARY BUTTON (premium gradient) ----- */
+        .form-control, .form-select, input, select, textarea {
+            cursor: pointer;
+        }
         .btn-rhythm {
             background: var(--accent-gradient);
             border: none;
@@ -184,8 +174,6 @@
             transform: scale(1.01);
             box-shadow: 0 16px 30px -6px rgba(0,110,170,0.6);
         }
-
-        /* ----- PROFILE EDIT (inline) ----- */
         .profile-edit-input {
             border: 1.5px solid #dee7f0;
             border-radius: 18px;
@@ -200,7 +188,6 @@
             outline: none;
             background: white;
         }
-
         .btn-pill {
             border-radius: 60px;
             font-weight: 600;
@@ -220,7 +207,6 @@
             box-shadow: 0 6px 14px -4px rgba(0,119,190,0.4);
         }
         .btn-pill.btn-primary:hover { background: #005a99; }
-
         .edit-icon-btn {
             background: white;
             border: 1px solid #dee7f0;
@@ -240,15 +226,11 @@
             color: white;
             border-color: transparent;
         }
-
-        /* ----- RO MODEL CARD (premium) ----- */
         .bg-light.rounded-4 {
             background: #f2f7fd !important;
             border-radius: 20px !important;
             padding: 18px !important;
         }
-
-        /* ----- BOOKING CONFIRMATION BADGE ----- */
         .bg-info-subtle {
             background: #e2f0ff !important;
             border-radius: 20px !important;
@@ -261,8 +243,6 @@
             padding: 8px 16px;
             border-radius: 60px;
         }
-
-        /* ----- WORK HISTORY ACCORDION (premium) ----- */
         .accordion-item {
             border: none;
             margin-bottom: 12px;
@@ -291,7 +271,6 @@
             border-top: 1px solid #f0f4fa;
             font-size: 0.9rem;
         }
-
         .spare-badge {
             background: #eaf2fb;
             color: #1d4a7c;
@@ -303,14 +282,10 @@
             margin: 4px 4px 0 0;
             border: 1px solid rgba(0,0,0,0.02);
         }
-
-        /* ----- specific header style for work history (0.95rem, 600) ----- */
         .hist-header-btn {
             font-size: 0.95rem !important;
             font-weight: 600 !important;
         }
-
-        /* ----- MODALS (premium glass) ----- */
         .modal-content {
             border: none;
             border-radius: 32px !important;
@@ -323,12 +298,6 @@
             padding: 12px 24px;
             font-weight: 600;
         }
-        .btn-logout-action {
-            font-size: 0.95rem !important;
-            font-weight: 700 !important;
-        }
-
-        /* ----- TOAST (refined) ----- */
         #mobileToast {
             visibility: hidden;
             min-width: 260px;
@@ -354,8 +323,6 @@
         }
         @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
         @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
-
-        /* ----- CONTACT BAR (premium sticky) ----- */
         .contact-action {
             position: fixed;
             bottom: 20px;
@@ -380,23 +347,191 @@
             transform: scale(1.01);
             color: white;
         }
-
-        /* ----- UTILITIES ----- */
         .cursor-pointer { cursor: pointer !important; }
         .hidden { display: none !important; }
         hr { opacity: 0.15; margin: 20px 0; }
-
-        /* small enhancements */
         .text-primary { color: var(--accent) !important; }
-        .border-primary { border-color: var(--accent) !important; }
-        .bg-success-subtle { background: var(--success-bg); }
-        .text-success { color: var(--success) !important; }
-
+        .service-charge-note {
+            background: #fef7e0;
+            border-left: 4px solid #f5b042;
+            padding: 14px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 16px;
+            color: #6a4e1a;
+            transition: var(--transition);
+        }
+        .service-charge-note i {
+            margin-right: 6px;
+            color: #e67e22;
+        }
+        .update-booking-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .btn-outline-cancel {
+            background: transparent;
+            border: 1.5px solid #dc3545;
+            color: #dc3545;
+            border-radius: 60px;
+            padding: 12px 20px;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .btn-outline-cancel:hover {
+            background: #dc3545;
+            color: white;
+        }
+        .btn-update {
+            background: #2c7da0;
+            border: none;
+            color: white;
+            border-radius: 60px;
+            padding: 12px 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-update:hover {
+            background: #1f5e7a;
+        }
+        .update-panel-btn {
+            border-radius: 60px !important;
+            padding: 12px 20px;
+            font-weight: 600;
+        }
+        /* PREMIUM CANCEL POPUP - Professional & Elegant Design */
+        .premium-cancel-modal .modal-dialog {
+            max-width: 320px;
+            margin: 1.5rem auto;
+        }
+        .premium-cancel-modal .modal-content {
+            background: linear-gradient(145deg, #ffffff, #fefefe);
+            border-radius: 32px !important;
+            padding: 0;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.5);
+            backdrop-filter: blur(0);
+            overflow: hidden;
+        }
+        .premium-cancel-modal .modal-body {
+            padding: 28px 24px 24px 24px;
+            text-align: center;
+        }
+        .premium-cancel-modal .cancel-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            box-shadow: 0 8px 20px -8px rgba(220, 53, 69, 0.2);
+        }
+        .premium-cancel-modal .cancel-icon-wrapper i {
+            font-size: 2rem;
+            color: #dc3545;
+        }
+        .premium-cancel-modal h5 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a2b3c;
+            letter-spacing: -0.2px;
+        }
+        .premium-cancel-modal .cancel-message {
+            color: #6c7a8a;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            padding: 0 4px;
+        }
+        .premium-cancel-modal .booking-details-preview {
+            background: #f8fafd;
+            border-radius: 20px;
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            text-align: left;
+            border: 1px solid #eef2f8;
+        }
+        .premium-cancel-modal .booking-details-preview .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+        }
+        .premium-cancel-modal .booking-details-preview .detail-row:last-child {
+            margin-bottom: 0;
+        }
+        .premium-cancel-modal .detail-label {
+            color: #8a99aa;
+            font-weight: 500;
+        }
+        .premium-cancel-modal .detail-value {
+            color: #1e2f40;
+            font-weight: 600;
+        }
+        .premium-cancel-modal .action-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .premium-cancel-modal .btn-keep {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            color: #4a5b6e;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 40px;
+            transition: all 0.2s ease;
+            flex: 1;
+        }
+        .premium-cancel-modal .btn-keep:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+        .premium-cancel-modal .btn-confirm-cancel {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 40px;
+            transition: all 0.2s ease;
+            flex: 1;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.25);
+        }
+        .premium-cancel-modal .btn-confirm-cancel:hover {
+            background: linear-gradient(135deg, #c82333, #b01f2e);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(220, 53, 69, 0.35);
+        }
         @media (max-width: 480px) {
             .brand-header { padding: 12px 16px; }
             .auth-card { margin: 16px; padding: 22px; }
             .white-card { padding: 20px; }
             .notif-bell, .logout-icon { width: 40px; height: 40px; font-size: 1.3rem; }
+            .premium-cancel-modal .modal-dialog {
+                max-width: 300px;
+                margin: 1rem auto;
+            }
+            .premium-cancel-modal .modal-body {
+                padding: 22px 20px 20px 20px;
+            }
+            .premium-cancel-modal .cancel-icon-wrapper {
+                width: 56px;
+                height: 56px;
+            }
+            .premium-cancel-modal .cancel-icon-wrapper i {
+                font-size: 1.75rem;
+            }
+            .premium-cancel-modal h5 {
+                font-size: 1.25rem;
+            }
         }
     </style>
 </head>
@@ -435,7 +570,6 @@
             <div class="notif-bell" onclick="showNotifications()"><i class="bi bi-bell"></i><span class="notif-dot"></span></div>
             <div class="logout-icon" onclick="openLogoutModal()" title="Logout"><i class="bi bi-power"></i></div>
         </div>
-
         <div class="d-flex justify-content-between align-items-start" style="padding-right: 70px;">
             <div id="profileDisplay">
                 <div class="d-flex align-items-center gap-2 mb-1">
@@ -446,7 +580,6 @@
                 <small class="text-muted d-block" id="dispAddr">#404 QA Street, Chennai</small>
             </div>
         </div>
-
         <div id="editProfile" class="mt-3 hidden border-top pt-3">
             <h6 class="fw-bold mb-2 ms-1">Profile Details</h6>
             <input type="text" id="editNameInp" class="form-control profile-edit-input mb-2" placeholder="Update Name">
@@ -457,23 +590,12 @@
                 <button class="btn btn-pill btn-primary w-50 cursor-pointer" onclick="saveProfile()">Update</button>
             </div>
         </div>
-
         <hr class="my-3 opacity-10">
-
         <div class="p-3 bg-light rounded-4 border-0">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <span class="text-muted small d-block">Current RO Model</span>
                     <strong id="bText">Kent Grand Plus</strong>
-                </div>
-                <button class="edit-icon-btn" onclick="toggleEdit()">
-                    <i class="bi bi-pencil-fill small"></i>
-                </button>
-            </div>
-            <div id="editBrand" class="mt-2 hidden">
-                <div class="input-group">
-                    <input type="text" id="bInp" class="form-control form-control-sm" placeholder="Update Brand">
-                    <button class="btn btn-primary btn-sm cursor-pointer" onclick="saveB()">Save</button>
                 </div>
             </div>
         </div>
@@ -484,14 +606,16 @@
         <div id="bookingFormUI">
             <div class="mb-3">
                 <select id="serviceType" class="form-select border-0 bg-light p-3 cursor-pointer">
-                    <!-- placeholder option -->
                     <option value="" disabled selected>Select service</option>
-                    <option>General Service</option>
-                    <option>Installation</option>
-                    <option>Reinstallation</option>
+                    <option value="Service Request">Service Request</option>
+                    <option value="Installation">Installation</option>
+                    <option value="Reinstallation">Reinstallation</option>
                 </select>
             </div>
-            <div class="mb-4">
+            <div id="serviceChargeMessage" class="service-charge-note hidden">
+                <i class="bi bi-info-circle-fill"></i> <span id="chargeText"></span>
+            </div>
+            <div class="mb-4 mt-3">
                 <label class="small text-muted ms-2 mb-1">Select Date & Time</label>
                 <input type="datetime-local" id="serviceDate" class="form-control border-0 bg-light p-3">
             </div>
@@ -501,12 +625,29 @@
         <div id="bookedOrderView" class="hidden p-3 bg-info-subtle border border-info-subtle rounded-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <span class="badge bg-info text-dark">Booking Confirmed</span>
-                <button class="btn btn-sm btn-link text-primary p-0 cursor-pointer" onclick="editBooking()">Edit Order</button>
             </div>
             <h6 class="fw-bold mb-1" id="viewType">--</h6>
             <p class="small mb-0 text-muted"><i class="bi bi-clock me-1"></i> <span id="viewTime">--</span></p>
-            <!-- booking ID display line -->
             <p class="small text-muted mt-1"><i class="bi bi-ticket me-1"></i>Booking ID: <span id="bookingIdDisplay">--</span></p>
+            <div class="update-booking-actions">
+                <button class="btn-outline-cancel w-50 cursor-pointer" onclick="openCancelPopup()">Cancel Service</button>
+                <button class="btn-update w-50 cursor-pointer" onclick="triggerUpdateMode()">Update Booking</button>
+            </div>
+        </div>
+        
+        <div id="updateBookingPanel" class="hidden mt-3 p-3 border rounded-4" style="background:#fef9e6;">
+            <h6 class="fw-bold mb-2">✏️ Update Service Request</h6>
+            <select id="updateServiceSelect" class="form-select mb-3 cursor-pointer">
+                <option value="Service Request">Service Request</option>
+                <option value="Installation">Installation</option>
+                <option value="Reinstallation">Reinstallation</option>
+            </select>
+            <input type="datetime-local" id="updateDateTime" class="form-control mb-3 cursor-pointer">
+            <div id="updateChargeMsg" class="small text-warning-emphasis mb-2"></div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-secondary w-50 update-panel-btn" onclick="cancelUpdateMode()">Cancel</button>
+                <button class="btn btn-sm btn-rhythm w-50 update-panel-btn" onclick="confirmUpdateBooking()">Update Now</button>
+            </div>
         </div>
     </div>
 
@@ -525,10 +666,40 @@
                         <strong class="text-primary">₹2,450</strong>
                     </div>
                     <p class="small mb-2">Full filter kit replacement and TDS check.</p>
-                    <div>
-                        <span class="spare-badge">Sediment Filter</span>
-                        <span class="spare-badge">Carbon Filter</span>
+                    <div><span class="spare-badge">Sediment Filter</span><span class="spare-badge">Carbon Filter</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PREMIUM CANCEL CONFIRMATION POPUP - Professional & Elegant Design -->
+<div class="modal fade premium-cancel-modal" id="cancelConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="cancel-icon-wrapper">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+                <h5>Cancel Service Request?</h5>
+                <p class="cancel-message">This action will permanently cancel your booking. You'll need to create a new request if you change your mind.</p>
+                <div class="booking-details-preview" id="cancelPreviewDetails">
+                    <div class="detail-row">
+                        <span class="detail-label">Service Type</span>
+                        <span class="detail-value" id="previewService">--</span>
                     </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Scheduled Date</span>
+                        <span class="detail-value" id="previewDateTime">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Booking ID</span>
+                        <span class="detail-value" id="previewBookingId">--</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button type="button" class="btn-keep" data-bs-dismiss="modal">Keep Booking</button>
+                    <button type="button" class="btn-confirm-cancel" id="confirmCancelBtn">Yes, Cancel</button>
                 </div>
             </div>
         </div>
@@ -550,28 +721,20 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="notifModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 border-0">
             <div class="modal-header border-0 pb-0">
                 <h5 class="fw-bold modal-title">Notifications</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <div class="p-3 bg-light rounded-3 mb-2 border-start border-4 border-primary">
-                    <p class="small mb-1 fw-bold">Service Reminder</p>
-                    <p class="small text-muted mb-0">Your RO filter replacement is due in 5 days.</p>
-                </div>
-                <div class="p-3 bg-light rounded-3 border-start border-4 border-success">
-                    <p class="small mb-1 fw-bold">Order Confirmed</p>
-                    <p class="small text-muted mb-0">Technician Kumar has been assigned to your request.</p>
-                </div>
+                <div class="p-3 bg-light rounded-3 mb-2 border-start border-4 border-primary"><p class="small mb-1 fw-bold">Service Reminder</p><p class="small text-muted mb-0">Your RO filter replacement is due in 5 days.</p></div>
+                <div class="p-3 bg-light rounded-3 border-start border-4 border-success"><p class="small mb-1 fw-bold">Order Confirmed</p><p class="small text-muted mb-0">Technician Kumar has been assigned to your request.</p></div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 border-0">
@@ -579,7 +742,6 @@
                 <div class="mb-3"><i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i></div>
                 <h5 class="fw-bold">Booking Confirmed!</h5>
                 <p class="text-muted">Our technician will contact you shortly.</p>
-                <!-- dynamic booking ID inside modal -->
                 <p id="modalBookingId" class="small fw-bold text-primary mt-2"></p>
                 <button type="button" class="btn btn-primary rounded-pill px-4 mt-2" data-bs-dismiss="modal">Great!</button>
             </div>
@@ -587,16 +749,15 @@
     </div>
 </div>
 
-<a href="tel:+918888888888" id="contactBar" class="contact-action hidden">
-    <i class="bi bi-telephone-fill me-2"></i>Call Service: +91 88888 88888
-</a>
+<a href="tel:+918888888888" id="contactBar" class="contact-action hidden"><i class="bi bi-telephone-fill me-2"></i>Call Service: +91 88888 88888</a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
     const bookingModal = new bootstrap.Modal(document.getElementById('successModal'));
     const notifModal = new bootstrap.Modal(document.getElementById('notifModal'));
     const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+    const cancelModal = new bootstrap.Modal(document.getElementById('cancelConfirmModal'));
+    let currentBookingData = { service: null, datetime: null, bookingId: null };
 
     function showToast(msg) {
         const toast = document.getElementById("mobileToast");
@@ -604,127 +765,146 @@
         toast.className = "show";
         setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
     }
-
-    function showNotifications() {
-        notifModal.show();
-    }
-
-    function openLogoutModal() {
-        logoutModal.show();
-    }
-
+    function showNotifications() { notifModal.show(); }
+    function openLogoutModal() { logoutModal.show(); }
     function updateDateLimit() {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        document.getElementById('serviceDate').setAttribute('min', `${year}-${month}-${day}T${hours}:${minutes}`);
+        const now = new Date(); const year = now.getFullYear(); const month = String(now.getMonth()+1).padStart(2,'0');
+        const day = String(now.getDate()).padStart(2,'0'); const hours = String(now.getHours()).padStart(2,'0');
+        const minutes = String(now.getMinutes()).padStart(2,'0');
+        const minVal = `${year}-${month}-${day}T${hours}:${minutes}`;
+        const serviceDate = document.getElementById('serviceDate');
+        if(serviceDate) serviceDate.setAttribute('min', minVal);
+        const updateDateTime = document.getElementById('updateDateTime');
+        if(updateDateTime) updateDateTime.setAttribute('min', minVal);
     }
-
     window.onload = updateDateLimit;
-
     function switchAuth(mode) {
         document.getElementById('lTab').classList.toggle('active', mode==='login');
         document.getElementById('sTab').classList.toggle('active', mode==='signup');
         document.getElementById('loginForm').classList.toggle('hidden', mode==='signup');
         document.getElementById('signupForm').classList.toggle('hidden', mode==='login');
     }
-
     function login() {
         document.getElementById('authSection').classList.add('hidden');
         document.getElementById('dashboard').classList.remove('hidden');
         document.getElementById('contactBar').classList.remove('hidden');
+        updateDateLimit();
     }
-
-    function logout() {
-        logoutModal.hide();
-        document.getElementById('authSection').classList.remove('hidden');
-        document.getElementById('dashboard').classList.add('hidden');
-        document.getElementById('contactBar').classList.add('hidden');
-    }
-
-    function toggleProfileEdit() { 
-        document.getElementById('editProfile').classList.toggle('hidden'); 
-        document.getElementById('editNameInp').value = "";
-        document.getElementById('editPhoneInp').value = "";
-        document.getElementById('editAddrInp').value = "";
-    }
-
+    function logout() { logoutModal.hide(); document.getElementById('authSection').classList.remove('hidden'); document.getElementById('dashboard').classList.add('hidden'); document.getElementById('contactBar').classList.add('hidden'); }
+    function toggleProfileEdit() { document.getElementById('editProfile').classList.toggle('hidden'); }
     function saveProfile() {
         const newName = document.getElementById('editNameInp').value.trim();
         const newPhone = document.getElementById('editPhoneInp').value.trim();
         const newAddr = document.getElementById('editAddrInp').value.trim();
-
-        if(!newName && !newPhone && !newAddr) {
-            showToast('Please enter details');
-            return;
-        }
-
         if(newName) document.getElementById('dispName').innerText = newName;
         if(newPhone) document.getElementById('dispPhone').innerText = newPhone;
         if(newAddr) document.getElementById('dispAddr').innerText = newAddr;
-        
         toggleProfileEdit();
     }
-
-    function toggleEdit() { document.getElementById('editBrand').classList.toggle('hidden'); }
-    
-    function saveB() { 
-        const val = document.getElementById('bInp').value.trim();
-        if(val) { 
-            document.getElementById('bText').innerText = val; 
-            toggleEdit(); 
-            document.getElementById('bInp').value = ""; 
-        } else {
-            showToast('Please enter details');
-        }
+    function getChargeMessage(serviceVal) {
+        if(serviceVal === 'Service Request') return '*Service charge of ₹200 will be applicable.';
+        if(serviceVal === 'Installation') return '*Installing charge of ₹500 will be applicable.';
+        if(serviceVal === 'Reinstallation') return '*Reinstalling charge of ₹375 will be applicable.';
+        return '';
     }
+    document.addEventListener('DOMContentLoaded', () => {
+        const serviceDropdown = document.getElementById('serviceType');
+        if(serviceDropdown) {
+            serviceDropdown.addEventListener('change', function() {
+                const chargeMsgDiv = document.getElementById('serviceChargeMessage');
+                if(this.value && (this.value === 'Service Request' || this.value === 'Installation' || this.value === 'Reinstallation')) {
+                    let msgSpan = document.getElementById('chargeText');
+                    if(!msgSpan) { chargeMsgDiv.innerHTML = '<i class="bi bi-info-circle-fill"></i> <span id="chargeText"></span>'; msgSpan = document.getElementById('chargeText'); }
+                    msgSpan.innerText = getChargeMessage(this.value);
+                    chargeMsgDiv.classList.remove('hidden');
+                } else {
+                    chargeMsgDiv.classList.add('hidden');
+                }
+            });
+        }
+        const updateSelect = document.getElementById('updateServiceSelect');
+        if(updateSelect) {
+            updateSelect.addEventListener('change', function() {
+                const updMsgDiv = document.getElementById('updateChargeMsg');
+                if(this.value) updMsgDiv.innerText = getChargeMessage(this.value);
+                else updMsgDiv.innerText = '';
+            });
+        }
+        document.getElementById('confirmCancelBtn').addEventListener('click', function() {
+            cancelModal.hide();
+            performCancelBooking();
+        });
+    });
 
     function handleBooking() {
         const service = document.getElementById('serviceType').value;
         const dateInp = document.getElementById('serviceDate').value;
-
-        // Validate service selection (placeholder value is empty string)
-        if (!service) {
-            showToast('Please select a service type');
-            return;
-        }
-        if (!dateInp) {
-            showToast('Please select a date and time');
-            return;
-        }
-        
+        if(!service || service === "") { showToast('Please select a service type'); return; }
+        if(!dateInp) { showToast('Please select a date and time'); return; }
         const selectedDate = new Date(dateInp);
-        if (selectedDate < new Date()) {
-            showToast('Past dates are not allowed');
-            return;
-        }
-
-        // Generate a unique booking ID
+        if(selectedDate < new Date()) { showToast('Past dates are not allowed'); return; }
         const bookingId = 'RHY-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-
-        // Update confirmation card
+        currentBookingData = { service, datetime: dateInp, bookingId };
         document.getElementById('viewType').innerText = service;
         document.getElementById('viewTime').innerText = dateInp.replace('T', ' at ');
         document.getElementById('bookingIdDisplay').innerText = bookingId;
-
-        // Update success modal with booking ID
         document.getElementById('modalBookingId').innerText = 'Booking ID: ' + bookingId;
-
-        // Swap views
         document.getElementById('bookingFormUI').classList.add('hidden');
         document.getElementById('bookedOrderView').classList.remove('hidden');
+        document.getElementById('updateBookingPanel').classList.add('hidden');
         bookingModal.show();
     }
-
-    function editBooking() {
+    
+    function openCancelPopup() {
+        if(currentBookingData.bookingId) {
+            document.getElementById('previewService').innerText = currentBookingData.service;
+            document.getElementById('previewDateTime').innerText = currentBookingData.datetime.replace('T', ' at ');
+            document.getElementById('previewBookingId').innerText = currentBookingData.bookingId;
+            cancelModal.show();
+        } else {
+            showToast('No active booking to cancel');
+        }
+    }
+    
+    function performCancelBooking() {
+        currentBookingData = { service: null, datetime: null, bookingId: null };
         document.getElementById('bookingFormUI').classList.remove('hidden');
         document.getElementById('bookedOrderView').classList.add('hidden');
-        // Optionally reset the booking ID display (it will be regenerated next time)
+        document.getElementById('updateBookingPanel').classList.add('hidden');
+        document.getElementById('serviceType').value = '';
+        document.getElementById('serviceDate').value = '';
+        document.getElementById('serviceChargeMessage').classList.add('hidden');
+        showToast('Service request cancelled successfully.');
+    }
+    
+    function triggerUpdateMode() {
+        if(!currentBookingData.bookingId) { showToast('No active booking to update'); return; }
+        const updateSelect = document.getElementById('updateServiceSelect');
+        const updateDate = document.getElementById('updateDateTime');
+        updateSelect.value = currentBookingData.service;
+        updateDate.value = currentBookingData.datetime;
+        const updMsgDiv = document.getElementById('updateChargeMsg');
+        updMsgDiv.innerText = getChargeMessage(currentBookingData.service);
+        document.getElementById('updateBookingPanel').classList.remove('hidden');
+    }
+    function cancelUpdateMode() {
+        document.getElementById('updateBookingPanel').classList.add('hidden');
+    }
+    function confirmUpdateBooking() {
+        const newService = document.getElementById('updateServiceSelect').value;
+        const newDateTime = document.getElementById('updateDateTime').value;
+        if(!newService) { showToast('Please select service type'); return; }
+        if(!newDateTime) { showToast('Please select new date & time'); return; }
+        if(new Date(newDateTime) < new Date()) { showToast('Future date/time required'); return; }
+        currentBookingData.service = newService;
+        currentBookingData.datetime = newDateTime;
+        document.getElementById('viewType').innerText = newService;
+        document.getElementById('viewTime').innerText = newDateTime.replace('T', ' at ');
+        document.getElementById('updateBookingPanel').classList.add('hidden');
+        showToast(`Booking updated: ${newService} on ${newDateTime.replace('T', ' at ')}`);
+        const chargeMsgDiv = document.getElementById('serviceChargeMessage');
+        if(chargeMsgDiv && document.getElementById('serviceType')) chargeMsgDiv.classList.add('hidden');
     }
 </script>
-
 </body>
 </html>
