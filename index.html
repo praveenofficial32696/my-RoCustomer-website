@@ -372,6 +372,30 @@
             display: flex;
             gap: 12px;
             margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        /* Premium Mobile Optimized Buttons - Reduced width and height for all 4 buttons */
+        @media (max-width: 480px) {
+            .update-booking-actions {
+                gap: 10px;
+            }
+            /* Cancel Service & Update Booking buttons */
+            .btn-outline-cancel, .btn-update {
+                padding: 8px 16px !important;
+                font-size: 0.75rem !important;
+                border-radius: 50px !important;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+                transition: all 0.2s ease;
+            }
+            /* Cancel & Update Now buttons in update panel */
+            .update-panel-btn {
+                padding: 8px 16px !important;
+                font-size: 0.75rem !important;
+                border-radius: 50px !important;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+            }
         }
         .btn-outline-cancel {
             background: transparent;
@@ -382,10 +406,14 @@
             font-weight: 600;
             transition: 0.2s;
             cursor: pointer;
+            flex: 1;
+            text-align: center;
         }
         .btn-outline-cancel:hover {
             background: #dc3545;
             color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.25);
         }
         .btn-update {
             background: #2c7da0;
@@ -395,14 +423,28 @@
             padding: 12px 20px;
             font-weight: 600;
             cursor: pointer;
+            flex: 1;
+            text-align: center;
+            transition: 0.2s;
         }
         .btn-update:hover {
             background: #1f5e7a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(44, 125, 160, 0.3);
         }
         .update-panel-btn {
             border-radius: 60px !important;
             padding: 12px 20px;
             font-weight: 600;
+            transition: 0.2s;
+        }
+        .update-panel-btn.btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+        .update-panel-btn.btn-rhythm:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 119, 190, 0.3);
         }
         /* RO Model edit panel */
         .ro-model-edit-container {
@@ -416,7 +458,70 @@
             border: 1.5px solid #e2eaf2;
             padding: 10px 14px;
         }
-        /* PREMIUM CANCEL POPUP - Professional & Elegant Design */
+        /* Technician Info Card */
+        .technician-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 20px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border: 1px solid #e9eef3;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .tech-avatar {
+            width: 48px;
+            height: 48px;
+            background: #94a3b8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .tech-info {
+            flex: 1;
+        }
+        .tech-info .tech-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        .tech-info .tech-phone {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .call-tech-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            padding: 8px 14px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: var(--transition);
+        }
+        .call-tech-btn:hover {
+            background: #20b859;
+            color: white;
+            transform: translateY(-1px);
+        }
+        .unassigned-badge {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 8px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-align: center;
+            display: inline-block;
+        }
+        /* PREMIUM CANCEL POPUP */
         .premium-cancel-modal .modal-dialog {
             max-width: 320px;
             margin: 1.5rem auto;
@@ -530,28 +635,15 @@
             .auth-card { margin: 16px; padding: 22px; }
             .white-card { padding: 20px; }
             .notif-bell, .logout-icon { width: 40px; height: 40px; font-size: 1.3rem; }
-            .premium-cancel-modal .modal-dialog {
-                max-width: 300px;
-                margin: 1rem auto;
-            }
-            .premium-cancel-modal .modal-body {
-                padding: 22px 20px 20px 20px;
-            }
-            .premium-cancel-modal .cancel-icon-wrapper {
-                width: 56px;
-                height: 56px;
-            }
-            .premium-cancel-modal .cancel-icon-wrapper i {
-                font-size: 1.75rem;
-            }
-            .premium-cancel-modal h5 {
-                font-size: 1.25rem;
-            }
-            .edit-icon-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 0.85rem;
-            }
+            .premium-cancel-modal .modal-dialog { max-width: 300px; margin: 1rem auto; }
+            .premium-cancel-modal .modal-body { padding: 22px 20px 20px 20px; }
+            .premium-cancel-modal .cancel-icon-wrapper { width: 56px; height: 56px; }
+            .premium-cancel-modal .cancel-icon-wrapper i { font-size: 1.75rem; }
+            .premium-cancel-modal h5 { font-size: 1.25rem; }
+            .edit-icon-btn { width: 32px; height: 32px; font-size: 0.85rem; }
+            .technician-card { padding: 10px 12px; }
+            .tech-avatar { width: 40px; height: 40px; font-size: 1rem; }
+            .call-tech-btn { padding: 6px 10px; font-size: 0.65rem; }
         }
     </style>
 </head>
@@ -621,7 +713,6 @@
                     <i class="bi bi-pencil"></i>
                 </div>
             </div>
-            <!-- RO Model Edit Panel -->
             <div id="editRoModelPanel" class="ro-model-edit-container hidden">
                 <div class="d-flex gap-2 mt-2">
                     <input type="text" id="editRoModelInput" class="form-control" placeholder="Enter RO Model">
@@ -660,9 +751,25 @@
             <h6 class="fw-bold mb-1" id="viewType">--</h6>
             <p class="small mb-0 text-muted"><i class="bi bi-clock me-1"></i> <span id="viewTime">--</span></p>
             <p class="small text-muted mt-1"><i class="bi bi-ticket me-1"></i>Booking ID: <span id="bookingIdDisplay">--</span></p>
+            
+            <!-- Technician Details Section - Default Unassigned -->
+            <div id="technicianInfo" class="technician-card">
+                <div class="tech-avatar">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="tech-info">
+                    <div class="tech-name" id="techName">Not Assigned</div>
+                    <div class="tech-phone" id="techPhone">Technician will be assigned soon</div>
+                </div>
+                <div id="techCallContainer" style="display: none;">
+                    <a href="#" id="techCallLink" class="call-tech-btn"><i class="bi bi-telephone-fill"></i> Call</a>
+                </div>
+                <div id="unassignedBadge" class="unassigned-badge">Pending Assignment</div>
+            </div>
+            
             <div class="update-booking-actions">
-                <button class="btn-outline-cancel w-50 cursor-pointer" onclick="openCancelPopup()">Cancel Service</button>
-                <button class="btn-update w-50 cursor-pointer" onclick="triggerUpdateMode()">Update Booking</button>
+                <button class="btn-outline-cancel" onclick="openCancelPopup()">Cancel Service</button>
+                <button class="btn-update" onclick="triggerUpdateMode()">Update Booking</button>
             </div>
         </div>
         
@@ -676,8 +783,8 @@
             <input type="datetime-local" id="updateDateTime" class="form-control mb-3 cursor-pointer">
             <div id="updateChargeMsg" class="small text-warning-emphasis mb-2"></div>
             <div class="d-flex gap-2">
-                <button class="btn btn-sm btn-secondary w-50 update-panel-btn" onclick="cancelUpdateMode()">Cancel</button>
-                <button class="btn btn-sm btn-rhythm w-50 update-panel-btn" onclick="confirmUpdateBooking()">Update Now</button>
+                <button class="btn btn-sm btn-secondary update-panel-btn" onclick="cancelUpdateMode()">Cancel</button>
+                <button class="btn btn-sm btn-rhythm update-panel-btn" onclick="confirmUpdateBooking()">Update Now</button>
             </div>
         </div>
     </div>
@@ -704,29 +811,18 @@
     </div>
 </div>
 
-<!-- PREMIUM CANCEL CONFIRMATION POPUP - Professional & Elegant Design -->
+<!-- PREMIUM CANCEL CONFIRMATION POPUP -->
 <div class="modal fade premium-cancel-modal" id="cancelConfirmModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="cancel-icon-wrapper">
-                    <i class="bi bi-x-lg"></i>
-                </div>
+                <div class="cancel-icon-wrapper"><i class="bi bi-x-lg"></i></div>
                 <h5>Cancel Service Request?</h5>
                 <p class="cancel-message">This action will permanently cancel your booking. You'll need to create a new request if you change your mind.</p>
                 <div class="booking-details-preview" id="cancelPreviewDetails">
-                    <div class="detail-row">
-                        <span class="detail-label">Service Type</span>
-                        <span class="detail-value" id="previewService">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Scheduled Date</span>
-                        <span class="detail-value" id="previewDateTime">--</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Booking ID</span>
-                        <span class="detail-value" id="previewBookingId">--</span>
-                    </div>
+                    <div class="detail-row"><span class="detail-label">Service Type</span><span class="detail-value" id="previewService">--</span></div>
+                    <div class="detail-row"><span class="detail-label">Scheduled Date</span><span class="detail-value" id="previewDateTime">--</span></div>
+                    <div class="detail-row"><span class="detail-label">Booking ID</span><span class="detail-value" id="previewBookingId">--</span></div>
                 </div>
                 <div class="action-buttons">
                     <button type="button" class="btn-keep" data-bs-dismiss="modal">Keep Booking</button>
@@ -745,8 +841,8 @@
                 <h5 class="fw-bold">Confirm Logout</h5>
                 <p class="text-muted small">Are you sure you want to exit the app?</p>
                 <div class="d-flex gap-2 mt-4">
-                    <button type="button" class="btn btn-light border rounded-pill w-50 btn-logout-action" data-bs-dismiss="modal">Stay</button>
-                    <button type="button" class="btn btn-danger rounded-pill w-50 btn-logout-action" onclick="logout()">Logout</button>
+                    <button type="button" class="btn btn-light border rounded-pill w-50" data-bs-dismiss="modal">Stay</button>
+                    <button type="button" class="btn btn-danger rounded-pill w-50" onclick="logout()">Logout</button>
                 </div>
             </div>
         </div>
@@ -755,10 +851,7 @@
 <div class="modal fade" id="notifModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content rounded-4 border-0">
-            <div class="modal-header border-0 pb-0">
-                <h5 class="fw-bold modal-title">Notifications</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
+            <div class="modal-header border-0 pb-0"><h5 class="fw-bold modal-title">Notifications</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
             <div class="modal-body">
                 <div class="p-3 bg-light rounded-3 mb-2 border-start border-4 border-primary"><p class="small mb-1 fw-bold">Service Reminder</p><p class="small text-muted mb-0">Your RO filter replacement is due in 5 days.</p></div>
                 <div class="p-3 bg-light rounded-3 border-start border-4 border-success"><p class="small mb-1 fw-bold">Order Confirmed</p><p class="small text-muted mb-0">Technician Kumar has been assigned to your request.</p></div>
@@ -788,14 +881,12 @@
     const notifModal = new bootstrap.Modal(document.getElementById('notifModal'));
     const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
     const cancelModal = new bootstrap.Modal(document.getElementById('cancelConfirmModal'));
-    let currentBookingData = { service: null, datetime: null, bookingId: null };
+    let currentBookingData = { service: null, datetime: null, bookingId: null, technician: null, technicianPhone: null };
 
-    function showToast(msg) {
-        const toast = document.getElementById("mobileToast");
-        toast.innerText = msg;
-        toast.className = "show";
-        setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
-    }
+    // Store technician assignments per booking (simulated admin assignment)
+    let technicianAssignments = {};
+
+    function showToast(msg) { const toast = document.getElementById("mobileToast"); toast.innerText = msg; toast.className = "show"; setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000); }
     function showNotifications() { notifModal.show(); }
     function openLogoutModal() { logoutModal.show(); }
     function updateDateLimit() {
@@ -815,12 +906,7 @@
         document.getElementById('loginForm').classList.toggle('hidden', mode==='signup');
         document.getElementById('signupForm').classList.toggle('hidden', mode==='login');
     }
-    function login() {
-        document.getElementById('authSection').classList.add('hidden');
-        document.getElementById('dashboard').classList.remove('hidden');
-        document.getElementById('contactBar').classList.remove('hidden');
-        updateDateLimit();
-    }
+    function login() { document.getElementById('authSection').classList.add('hidden'); document.getElementById('dashboard').classList.remove('hidden'); document.getElementById('contactBar').classList.remove('hidden'); updateDateLimit(); }
     function logout() { logoutModal.hide(); document.getElementById('authSection').classList.remove('hidden'); document.getElementById('dashboard').classList.add('hidden'); document.getElementById('contactBar').classList.add('hidden'); }
     function toggleProfileEdit() { document.getElementById('editProfile').classList.toggle('hidden'); }
     function saveProfile() {
@@ -834,28 +920,8 @@
         showToast('Profile updated successfully');
     }
     
-    // RO Model Edit Functions
-    function toggleRoModelEdit() {
-        const panel = document.getElementById('editRoModelPanel');
-        const currentModel = document.getElementById('roModelText').innerText;
-        if (panel.classList.contains('hidden')) {
-            document.getElementById('editRoModelInput').value = currentModel;
-            panel.classList.remove('hidden');
-        } else {
-            panel.classList.add('hidden');
-        }
-    }
-    
-    function saveRoModel() {
-        const newModel = document.getElementById('editRoModelInput').value.trim();
-        if (newModel) {
-            document.getElementById('roModelText').innerText = newModel;
-            toggleRoModelEdit();
-            showToast(`RO Model updated to "${newModel}"`);
-        } else {
-            showToast('Please enter a valid RO model');
-        }
-    }
+    function toggleRoModelEdit() { const panel = document.getElementById('editRoModelPanel'); const currentModel = document.getElementById('roModelText').innerText; if (panel.classList.contains('hidden')) { document.getElementById('editRoModelInput').value = currentModel; panel.classList.remove('hidden'); } else { panel.classList.add('hidden'); } }
+    function saveRoModel() { const newModel = document.getElementById('editRoModelInput').value.trim(); if (newModel) { document.getElementById('roModelText').innerText = newModel; toggleRoModelEdit(); showToast(`RO Model updated to "${newModel}"`); } else { showToast('Please enter a valid RO model'); } }
     
     function getChargeMessage(serviceVal) {
         if(serviceVal === 'Service Request') return '*Service charge of ₹200 will be applicable.';
@@ -863,6 +929,43 @@
         if(serviceVal === 'Reinstallation') return '*Reinstalling charge of ₹375 will be applicable.';
         return '';
     }
+    
+    // Function to update technician display based on current booking
+    function updateTechnicianDisplay() {
+        const techInfoDiv = document.getElementById('technicianInfo');
+        const techNameSpan = document.getElementById('techName');
+        const techPhoneSpan = document.getElementById('techPhone');
+        const callContainer = document.getElementById('techCallContainer');
+        const unassignedBadge = document.getElementById('unassignedBadge');
+        
+        if (currentBookingData.bookingId && technicianAssignments[currentBookingData.bookingId]) {
+            const tech = technicianAssignments[currentBookingData.bookingId];
+            techNameSpan.innerText = tech.name;
+            techPhoneSpan.innerText = tech.phone;
+            document.getElementById('techCallLink').href = `tel:${tech.phone}`;
+            callContainer.style.display = 'flex';
+            unassignedBadge.style.display = 'none';
+            techInfoDiv.style.background = 'linear-gradient(135deg, #e8f5e9, #ffffff)';
+            techInfoDiv.style.borderColor = '#c8e6d9';
+        } else {
+            techNameSpan.innerText = 'Not Assigned';
+            techPhoneSpan.innerText = 'Technician will be assigned soon';
+            callContainer.style.display = 'none';
+            unassignedBadge.style.display = 'block';
+            techInfoDiv.style.background = 'linear-gradient(135deg, #f8fafc, #ffffff)';
+            techInfoDiv.style.borderColor = '#e9eef3';
+        }
+    }
+    
+    // Simulate admin assigning technician (can be called from console or after booking)
+    window.assignTechnicianToBooking = function(bookingId, techName, techPhone) {
+        technicianAssignments[bookingId] = { name: techName, phone: techPhone };
+        if (currentBookingData.bookingId === bookingId) {
+            updateTechnicianDisplay();
+            showToast(`Technician ${techName} assigned to your booking`);
+        }
+    };
+    
     document.addEventListener('DOMContentLoaded', () => {
         const serviceDropdown = document.getElementById('serviceType');
         if(serviceDropdown) {
@@ -873,23 +976,14 @@
                     if(!msgSpan) { chargeMsgDiv.innerHTML = '<i class="bi bi-info-circle-fill"></i> <span id="chargeText"></span>'; msgSpan = document.getElementById('chargeText'); }
                     msgSpan.innerText = getChargeMessage(this.value);
                     chargeMsgDiv.classList.remove('hidden');
-                } else {
-                    chargeMsgDiv.classList.add('hidden');
-                }
+                } else { chargeMsgDiv.classList.add('hidden'); }
             });
         }
         const updateSelect = document.getElementById('updateServiceSelect');
         if(updateSelect) {
-            updateSelect.addEventListener('change', function() {
-                const updMsgDiv = document.getElementById('updateChargeMsg');
-                if(this.value) updMsgDiv.innerText = getChargeMessage(this.value);
-                else updMsgDiv.innerText = '';
-            });
+            updateSelect.addEventListener('change', function() { const updMsgDiv = document.getElementById('updateChargeMsg'); if(this.value) updMsgDiv.innerText = getChargeMessage(this.value); else updMsgDiv.innerText = ''; });
         }
-        document.getElementById('confirmCancelBtn').addEventListener('click', function() {
-            cancelModal.hide();
-            performCancelBooking();
-        });
+        document.getElementById('confirmCancelBtn').addEventListener('click', function() { cancelModal.hide(); performCancelBooking(); });
     });
 
     function handleBooking() {
@@ -900,7 +994,7 @@
         const selectedDate = new Date(dateInp);
         if(selectedDate < new Date()) { showToast('Past dates are not allowed'); return; }
         const bookingId = 'RHY-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-        currentBookingData = { service, datetime: dateInp, bookingId };
+        currentBookingData = { service, datetime: dateInp, bookingId, technician: null, technicianPhone: null };
         document.getElementById('viewType').innerText = service;
         document.getElementById('viewTime').innerText = dateInp.replace('T', ' at ');
         document.getElementById('bookingIdDisplay').innerText = bookingId;
@@ -908,6 +1002,10 @@
         document.getElementById('bookingFormUI').classList.add('hidden');
         document.getElementById('bookedOrderView').classList.remove('hidden');
         document.getElementById('updateBookingPanel').classList.add('hidden');
+        
+        // Initialize technician display (unassigned by default)
+        updateTechnicianDisplay();
+        
         bookingModal.show();
     }
     
@@ -917,13 +1015,15 @@
             document.getElementById('previewDateTime').innerText = currentBookingData.datetime.replace('T', ' at ');
             document.getElementById('previewBookingId').innerText = currentBookingData.bookingId;
             cancelModal.show();
-        } else {
-            showToast('No active booking to cancel');
-        }
+        } else { showToast('No active booking to cancel'); }
     }
     
     function performCancelBooking() {
-        currentBookingData = { service: null, datetime: null, bookingId: null };
+        // Remove technician assignment for this booking
+        if (currentBookingData.bookingId) {
+            delete technicianAssignments[currentBookingData.bookingId];
+        }
+        currentBookingData = { service: null, datetime: null, bookingId: null, technician: null, technicianPhone: null };
         document.getElementById('bookingFormUI').classList.remove('hidden');
         document.getElementById('bookedOrderView').classList.add('hidden');
         document.getElementById('updateBookingPanel').classList.add('hidden');
@@ -943,9 +1043,7 @@
         updMsgDiv.innerText = getChargeMessage(currentBookingData.service);
         document.getElementById('updateBookingPanel').classList.remove('hidden');
     }
-    function cancelUpdateMode() {
-        document.getElementById('updateBookingPanel').classList.add('hidden');
-    }
+    function cancelUpdateMode() { document.getElementById('updateBookingPanel').classList.add('hidden'); }
     function confirmUpdateBooking() {
         const newService = document.getElementById('updateServiceSelect').value;
         const newDateTime = document.getElementById('updateDateTime').value;
@@ -961,6 +1059,14 @@
         const chargeMsgDiv = document.getElementById('serviceChargeMessage');
         if(chargeMsgDiv && document.getElementById('serviceType')) chargeMsgDiv.classList.add('hidden');
     }
+    
+    // For demo: Simulate admin assigning a technician after 5 seconds (can be triggered from admin panel)
+    setTimeout(() => {
+        if (currentBookingData.bookingId && !technicianAssignments[currentBookingData.bookingId]) {
+            // Simulate admin assigning technician
+            assignTechnicianToBooking(currentBookingData.bookingId, 'Kumar S.', '+91 98765 43210');
+        }
+    }, 8000);
 </script>
 </body>
 </html>
